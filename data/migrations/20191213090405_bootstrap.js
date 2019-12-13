@@ -12,16 +12,16 @@ exports.up = function(knex) {
         table.string('name').notNullable();
         table.text('description')
   })
-    .creatTable('tasks', table => {
+    .createTable('tasks', table => {
         table.increments();
         table.text('description').notNullable();
         table.text('notes');
         table.boolean('completed').notNullable().defaultTo(false);
-            tbl.integer('project_id', 6)
-                .unsigned()
-                .notNullable()
-                .references('id')
-                .inTable('projects');
+        table.integer('project_id', 6)
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('projects');
   })
 };
 
